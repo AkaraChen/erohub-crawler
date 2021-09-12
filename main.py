@@ -1,16 +1,22 @@
 import requests
 import json
 
+# Typecho 所在的域名
 domain = 'https://api.erohub.org'
+# 输出的目录
 publicDir = 'dist'
-pagesize = 12
+# 下载一轮的数量
+pagesize = 50
+# 从哪一页开始下
+page = 1
 
 
-def requestForData(url):
+def requestForData(url, response='data'):
     r = requests.get(url)
-    result = json.loads(r.text)
-    data = result
-    return data
+    if response == 'data':
+        return json.loads(r.text)
+    else:
+        return r.text
 
 
 def writeFile(name, content, category):
@@ -24,12 +30,11 @@ postCount = int(requestForData(domain + '/api/count')['data']['counts']) - 8
 pageCount = int(postCount / pagesize) + 1
 print('本次下载共' + str(pageCount) + '页')
 
-page = 25
 while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page))
     for item in postList['data']:
         cid = item['cid']
-        postContent = str(requestForData(domain + '/api/post?cid=' + cid))
+        postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
         writeFile(cid, postContent, 'post')
         print(item['title'] + '已经下载好了')
 
