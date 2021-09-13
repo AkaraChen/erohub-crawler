@@ -39,7 +39,7 @@ while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page), 'origin')
     writeFile(str(page), str(postList), 'page')
     print('第%s页下载好了' % page)
-    for item in postList['data']:
+    for item in json.loads(postList)['data']:
         cid = item['cid']
         postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
         writeFile(cid, postContent, 'post')
