@@ -1,3 +1,4 @@
+import os
 import requests
 import json
 
@@ -9,6 +10,9 @@ publicDir = 'dist'
 pagesize = 12
 # 从哪一页开始下
 page = 1
+
+os.mkdir(publicDir + '/page')
+os.mkdir(publicDir + '/post')
 
 
 def requestForData(url, response='data'):
@@ -34,11 +38,11 @@ while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page), 'origin')
     writeFile(str(page), str(postList), 'page')
     print('第%s页下载好了' % page)
-    # for item in postList['data']:
-    #     cid = item['cid']
-    #     postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
-    #     writeFile(cid, postContent, 'post')
-    #     print('%s已经下载好了' % item['title'])
-    #
-    # print('第' + str(page) + '页下载好了')
+    for item in postList['data']:
+        cid = item['cid']
+        postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
+        writeFile(cid, postContent, 'post')
+        print('%s已经下载好了' % item['title'])
+
+    print('第' + str(page) + '页下载好了')
     page += 1
