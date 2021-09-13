@@ -31,14 +31,14 @@ pageCount = int(postCount / pagesize) + 1
 print('本次下载共' + str(pageCount) + '页')
 
 while page <= pageCount:
-    postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page))
-    print('第%s页页面信息下载好了' % page)
+    postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page), 'origin')
     writeFile(str(page), str(postList), 'page')
-    for item in postList['data']:
-        cid = item['cid']
-        postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
-        writeFile(cid, postContent, 'post')
-        print('%s已经下载好了' % item['title'])
-
-    print('第' + str(page) + '页下载好了')
+    print('第%s页下载好了' % page)
+    # for item in postList['data']:
+    #     cid = item['cid']
+    #     postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
+    #     writeFile(cid, postContent, 'post')
+    #     print('%s已经下载好了' % item['title'])
+    #
+    # print('第' + str(page) + '页下载好了')
     page += 1
