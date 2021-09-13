@@ -6,7 +6,7 @@ domain = 'https://api.erohub.org'
 # 输出的目录
 publicDir = 'dist'
 # 下载一轮的数量
-pagesize = 50
+pagesize = 12
 # 从哪一页开始下
 page = 1
 
@@ -32,11 +32,13 @@ print('本次下载共' + str(pageCount) + '页')
 
 while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page))
+    print('第%s页页面信息下载好了' % page)
+    writeFile(str(page), str(postList), 'page')
     for item in postList['data']:
         cid = item['cid']
         postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
         writeFile(cid, postContent, 'post')
-        print(item['title'] + '已经下载好了')
+        print('%s已经下载好了' % item['title'])
 
     print('第' + str(page) + '页下载好了')
     page += 1
