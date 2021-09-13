@@ -11,7 +11,7 @@ pagesize = 12
 # 从哪一页开始下
 page = 1
 
-os.removedirs(publicDir)
+os.system('rm -rf '+publicDir)
 os.mkdir(publicDir)
 os.mkdir(publicDir + '/page')
 os.mkdir(publicDir + '/post')
