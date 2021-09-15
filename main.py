@@ -33,13 +33,12 @@ def writeFile(name, content, category):
 
 # 实际文章数量比获取的少了八个，原因未知
 postCount = int(requestForData(domain + '/api/count')['data']['counts']) - 8
-pageCount = int(postCount / pagesize) + 1
+pageCount = int(postCount / pagesize) + 2
 print('本次下载共' + str(pageCount) + '页')
 
 while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page), 'origin')
     writeFile(str(page), str(postList), 'page')
-    print('第%s页下载好了' % page)
     for item in json.loads(postList)['data']:
         cid = item['cid']
         postContent = str(requestForData(domain + '/api/post?cid=' + cid, 'origin'))
