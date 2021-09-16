@@ -2,13 +2,9 @@ import os
 import requests
 import json
 
-# Typecho 所在的域名
 domain = 'https://api.erohub.org'
-# 输出的目录
 publicDir = 'dist'
-# 下载一轮的数量
 pagesize = 12
-# 从哪一页开始下
 page = 1
 
 os.system('rm -rf '+publicDir)
