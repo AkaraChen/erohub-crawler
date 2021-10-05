@@ -30,20 +30,3 @@ def writeFile(name, content, category):
     f.close()
 
 
-webpage = 1
-webpageCount = ceil(int(requestForData('http://api.erohub.org/api/categoryList')['data'][0]['count']) / 12)
-print(webpageCount)
-while webpage <= webpageCount:
-    WebPostList = requestForData('http://api.erohub.org/api/posts?category=2cy&pageSize=12&page=' + str(webpage),
-                                 'origin')
-    writeFile(str(webpage), str(WebPostList), 'webpage')
-    webpage += 1
-
-mzituPage = 1
-mzituPageCount = ceil(int(requestForData('http://api.erohub.org/api/categoryList')['data'][1]['count']) / 12)
-print(mzituPageCount)
-while mzituPage <= mzituPageCount:
-    mzituPostList = requestForData('http://api.erohub.org/api/posts?category=2cy&pageSize=12&page=' + str(mzituPage),
-                                   'origin')
-    writeFile(str(mzituPage), str(mzituPostList), 'mzitu')
-    mzituPage += 1

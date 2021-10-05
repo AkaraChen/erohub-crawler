@@ -13,6 +13,7 @@ os.mkdir(publicDir)
 os.mkdir(publicDir + '/page')
 os.mkdir(publicDir + '/post')
 os.mkdir(publicDir + '/webpage')
+os.mkdir(publicDir + '/mzitu')
 
 
 def requestForData(url, response='data'):
@@ -48,20 +49,20 @@ while page <= pageCount:
     page += 1
 
 webpage = 1
-webpageCount = ceil(int(requestForData('https://api.erohub.org/api/categoryList')['data'][0]['count']) / 12)
+webpageCount = ceil(int(requestForData('http://api.erohub.org/api/categoryList')['data'][0]['count']) / 12)
 print(webpageCount)
 while webpage <= webpageCount:
-    WebPostList = requestForData('https://api.erohub.org/api/posts?category=2cy&pageSize=12&page=' + str(webpage),
+    WebPostList = requestForData('http://api.erohub.org/api/posts?category=2cy&pageSize=12&page=' + str(webpage),
                                  'origin')
     writeFile(str(webpage), str(WebPostList), 'webpage')
     webpage += 1
 
 mzituPage = 1
-mzituPageCount = ceil(int(requestForData(requestForData('https://api.erohub.org/api/categoryList')
-                                         ['data'][1]['count']) / 12))
+mzituPageCount = ceil(int(requestForData('http://api.erohub.org/api/categoryList')['data'][1]['count']) / 12)
 print(mzituPageCount)
 while mzituPage <= mzituPageCount:
-    mzituPostList = requestForData('https://api.erohub.org/api/posts?category=2cy&pageSize=12&page=' + str(webpage),
+    mzituPostList = requestForData('http://api.erohub.org/api/posts?category=mzitu&pageSize=12&page=' + str(mzituPage),
                                    'origin')
     writeFile(str(mzituPage), str(mzituPostList), 'mzitu')
     mzituPage += 1
+
