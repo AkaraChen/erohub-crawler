@@ -8,12 +8,12 @@ publicDir = 'dist'
 pagesize = 12
 page = 1
 
-
 os.system('rm -rf ' + publicDir)
 os.mkdir(publicDir)
 os.mkdir(publicDir + '/page')
 os.mkdir(publicDir + '/post')
 os.mkdir(publicDir + '/webpage')
+os.mkdir(publicDir + '/mzitu')
 
 
 def requestForData(url, response='data'):
