@@ -28,7 +28,7 @@ jobs:
         pip install requests
     - name: Generate JSON
       run: |
-        python3 main.py
+        python3 main.py ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     - name: commit
       run: |
         git config --global user.email akarachen@outlook.com
@@ -38,4 +38,4 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.BACKEND }}
