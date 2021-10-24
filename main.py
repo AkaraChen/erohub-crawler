@@ -4,7 +4,7 @@ from math import ceil
 import requests
 import json
 
-domain = 'https://' + sys.argv[1]
+domain = 'http://' + sys.argv[1]
 publicDir = 'dist'
 pagesize = 12
 page = 1
