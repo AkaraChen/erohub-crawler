@@ -23,9 +23,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - name: Pull
-      run: |
-        git pull --rebase origin master
     - name: Install dependencies
       run: |
         pip install requests
