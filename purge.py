@@ -33,7 +33,7 @@ print('本次下载共' + str(pageCount) + '页')
 while page <= pageCount:
     postList = requestForData(domain + '/api/posts?pageSize=' + str(pagesize) + '&page=' + str(page),
                               'origin')
-    requests.get("https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/page/"+str(page)+".json")
+    requests.get("https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/page/"+str(page)+".json")
     page += 1
 
 webpage = 1
@@ -43,10 +43,10 @@ print(webpageCount)
 while webpage <= webpageCount:
     WebPostList = requestForData(domain + '/api/posts?category=2cy&pageSize=12&page=' + str(webpage),
                                  'origin')
-    requests.get("https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/webpage/"+str(webpage)+".json")
+    requests.get("https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/webpage/"+str(webpage)+".json")
     webpage += 1
 
-requests.get("https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/webpage/manifest.json")
+requests.get("https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/webpage/manifest.json")
 
 
 mzituPage = 1
@@ -56,8 +56,8 @@ print(mzituPageCount)
 while mzituPage <= mzituPageCount:
     mzituPostList = requestForData(domain + '/api/posts?category=mzitu&pageSize=12&page=' + str(mzituPage),
                                    'origin')
-    requests.get("https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/mzitu/"+str(mzituPage)+".json")
+    requests.get("https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/mzitu/"+str(mzituPage)+".json")
     mzituPage += 1
 
-requests.get("https://cdn.jsdelivr.net/gh/AkaraChen/erohub-backend@latest/dist/mzitu/manifest.json")
+requests.get("https://cdn.jsdelivr.net/gh/AsahiIndustry/erohub-backend@latest/dist/mzitu/manifest.json")
 
