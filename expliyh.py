@@ -23,7 +23,7 @@ def writeFile(name, content):
 
 
 while page <= 100:
-    postList = requestForData('https://www.expli.top/wp-json/wp/v2/posts?categories=24&per_page=12&page=1' + str(page))
+    postList = requestForData('https://www.expli.top/wp-json/wp/v2/posts?categories=24&per_page=12&page=' + str(page))
     if not postList:
         break
     writeFile(str(page), str(postList))
