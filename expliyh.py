@@ -1,7 +1,7 @@
 import os
 import requests
 
-publicDir = 'yandere'
+publicDir = 'expliyh'
 pagesize = 12
 page = 1
 
@@ -11,6 +11,8 @@ os.mkdir(publicDir)
 
 def requestForData(url):
     r = requests.get(url)
+    if r.status_code != 400:
+        return False
     return r.text
 
 
@@ -21,7 +23,9 @@ def writeFile(name, content):
 
 
 while page <= 100:
-    postList = requestForData('https://yande.re/post.json?limit=12&tags=rating%3As&page=' + str(page))
+    postList = requestForData('https://www.expli.top/wp-json/wp/v2/posts?categories=24&per_page=12&page=1' + str(page))
+    if not postList:
+        break
     writeFile(str(page), str(postList))
     print('第' + str(page) + '页下载好了')
     page += 1

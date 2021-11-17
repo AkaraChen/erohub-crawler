@@ -33,6 +33,9 @@ jobs:
       run: |
         python3 konachan.py
         python3 yandere.py
+    - name: Expliyh
+      run: |
+        python3 expliyh.py
     - name: commit
       run: |
         git config --global user.email akarachen@outlook.com

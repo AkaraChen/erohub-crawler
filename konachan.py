@@ -22,7 +22,6 @@ def writeFile(name, content):
 
 while page <= 100:
     postList = requestForData('https://konachan.net/post.json?limit=12&tags=rating%3As&page=' + str(page))
-    requests.get('https://purge.jsdelivr.net/gh/AkaraChen/Konachan@latest/dist/' + str(page) + '.json')
     writeFile(str(page), str(postList))
     print('第' + str(page) + '页下载好了')
     page += 1
