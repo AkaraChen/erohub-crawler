@@ -38,6 +38,7 @@ jobs:
         python3 expliyh.py
     - name: commit
       run: |
+        git pull
         git config --global user.email akarachen@outlook.com
         git config --global user.name akarachen
         git add .
