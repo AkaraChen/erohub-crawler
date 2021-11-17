@@ -26,9 +26,13 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests
-    - name: Generate JSON
+    - name: Generate Erohub
       run: |
         python3 main.py ${{ secrets.BACKEND }}
+    - name: Konachan & Yandere
+      run: |
+        python3 konachan.py
+        python3 yandere.py
     - name: commit
       run: |
         git config --global user.email akarachen@outlook.com
