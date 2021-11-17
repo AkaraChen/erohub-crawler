@@ -11,9 +11,10 @@ os.mkdir(publicDir)
 
 def requestForData(url):
     r = requests.get(url)
-    if r.status_code != 400:
+    if r.status_code == 400:
         return False
-    return r.text
+    else:
+        return r.text
 
 
 def writeFile(name, content):
