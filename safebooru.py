@@ -1,6 +1,6 @@
 import xmltodict
 import requests
-
+import json
 import os
 
 publicDir = 'safebooru'
@@ -23,8 +23,8 @@ def writeFile(name, content):
 
 
 while page <= 100:
-    postList = xmltodict.parse(
-        requestForData('https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=12&pid=' + str(page)))
+    postList = json.dumps(xmltodict.parse(
+        requestForData('https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=12&pid=' + str(page))))
     writeFile(str(page), str(postList))
     print('第' + str(page) + '页下载好了')
     page += 1
