@@ -26,6 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install requests
+        pip install xmltodict
     - name: Generate Erohub
       run: |
         python3 main.py ${{ secrets.BACKEND }}
