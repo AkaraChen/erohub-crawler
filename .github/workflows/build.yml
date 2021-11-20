@@ -23,13 +23,13 @@ jobs:
         pip install -r requirement.txt
     - name: Craw
       run: |
-        python3 main.py ${{ secrets.BACKEND }} &
+        python3 main.py ${{ secrets.BACKEND }}
     - name: Konachan
       run: |
-        python3 konachan.py &
+        python3 konachan.py
     - name: Expliyh
       run: |
-        python3 expliyh.py &
+        python3 expliyh.py
     - name: Safebooru
       run: |
         python3 safebooru.py
