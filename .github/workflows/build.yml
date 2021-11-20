@@ -20,7 +20,7 @@ jobs:
         python-version: 3.9
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r requirement.txt
     - name: Generate Erohub
       run: |
         python3 main.py ${{ secrets.BACKEND }}
