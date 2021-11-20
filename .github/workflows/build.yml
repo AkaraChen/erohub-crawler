@@ -20,8 +20,7 @@ jobs:
         python-version: 3.9
     - name: Install dependencies
       run: |
-        pip install requests
-        pip install xmltodict
+        pip install -r requirements.txt
     - name: Generate Erohub
       run: |
         python3 main.py ${{ secrets.BACKEND }}
