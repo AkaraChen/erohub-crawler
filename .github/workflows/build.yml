@@ -1,14 +1,14 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Generate
+name: Crawler
 on:
   schedule:
     - cron: '0 23 * * *'
   workflow_dispatch:
 
 jobs:
-  build:
+  Craw:
 
     runs-on: ubuntu-latest
 
@@ -21,15 +21,15 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirement.txt
-    - name: Generate Erohub
+    - name: Craw
       run: |
-        python3 main.py ${{ secrets.BACKEND }}
+        python3 main.py ${{ secrets.BACKEND }} &
     - name: Konachan
       run: |
-        python3 konachan.py
+        python3 konachan.py &
     - name: Expliyh
       run: |
-        python3 expliyh.py
+        python3 expliyh.py &
     - name: Safebooru
       run: |
         python3 safebooru.py
