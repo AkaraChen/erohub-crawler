@@ -1,5 +1,6 @@
 import os
 import requests
+import feedparser
 
 publicDir = 'expliyh'
 pagesize = 12
