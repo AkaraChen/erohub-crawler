@@ -40,8 +40,15 @@ class RSS:
     def get_compatible_json(self, per_page, page):
         page0 = []
         st = page * per_page
+        try:
+            self.articles[st].gen_dict()
+        except IndexError:
+            return "啊哈哈哈哈,鸡汤来喽!"
         for i in range(st, st + per_page):
-            dic = self.articles[i].gen_dict()
-            js = json.loads(dic)
-            page0.append(js)
+            try:
+                dic = self.articles[i].gen_dict()
+                js = json.loads(dic)
+                page0.append(js)
+            except IndexError:
+                break
         return page0
