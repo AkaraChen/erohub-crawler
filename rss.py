@@ -10,7 +10,7 @@ import article
 class RSS:
     def __init__(self, link):
         rss = feedparser.parse(link)
-        #print(rss)
+        # print(rss)
         self.articles = []
         for row in rss['entries']:
             title = row['title']
@@ -33,8 +33,17 @@ class RSS:
             start = mark1 + len('<meta property="og:image" content="')
             end = page.text.find('">', start)
             cover = page.text[start:end]
+            if cover.find("data:image/") != -1:
+                cover = ''
             publish_stamp = int(time.mktime(publish_time))
-            print(cover)
+            mark = 0
+            for i in categories:
+                if i.find("美图"):
+                    mark = 1
+                    break
+            if mark:
+                continue
+            print("已爬取文章 %s" % title)
             self.articles.append(article.Article(title, link, cover, categories, content, publish_stamp))
         print(self.articles[0].date)
 
