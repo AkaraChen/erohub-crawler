@@ -11,6 +11,7 @@ class Article:
     def gen_dict(self):
         dic = {
             'title': self.title,
+            'stamp':self.date
             'link': self.link,
             'cover': self.cover,
             'category': self.category,
