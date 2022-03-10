@@ -28,7 +28,7 @@ rss = rss.RSS("https://www.mt6735.top/atom.xml")
 
 for i in range(100):
     js = rss.get_compatible_json(per_page, i)
-    if js is "啊哈哈哈哈,鸡汤来喽!":
+    if js == "啊哈哈哈哈,鸡汤来喽!":
         break
     write_file(str(i + 1), js)
     print('已写入文件：%s.json' % str(i + 1))

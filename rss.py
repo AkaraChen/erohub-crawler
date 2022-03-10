@@ -48,7 +48,7 @@ class RSS:
         for i in range(st, st + per_page):
             try:
                 dic = self.articles[i].gen_dict()
-                js = json.loads(dic)
+                js = json.dumps(dic)
                 page0.append(js)
             except IndexError:
                 break
