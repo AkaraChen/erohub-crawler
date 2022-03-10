@@ -1,6 +1,3 @@
-import json
-
-
 class Article:
     def __init__(self, title, link, cover, category, content, date):
         self.title = title
