@@ -1,0 +1,21 @@
+name: Crawler
+on:
+  workflow_dispatch:
+
+jobs:
+  Craw:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        pip install -r requirement.txt
+    - name: Craw
+      run: |
+        python3 test.py ${{ secrets.BACKEND }}
