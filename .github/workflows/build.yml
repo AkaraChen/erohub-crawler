@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirement.txt
-    - name: Craw
-      run: |
-        python3 main.py ${{ secrets.BACKEND }}
     - name: Konachan
       run: |
         python3 konachan.py
