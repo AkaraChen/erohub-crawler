@@ -1,6 +1,6 @@
-# Erohub-backend
+# erohub-crawler
  
-[![Crawler](https://github.com/AsahiIndustry/Erohub-backend/actions/workflows/build.yml/badge.svg)](https://github.com/AsahiIndustry/Erohub-backend/actions/workflows/build.yml)
+[![Crawler](https://github.com/akarachen/erohub-crawler/actions/workflows/build.yml/badge.svg)](https://github.com/akarachen/erohub-crawler/actions/workflows/build.yml)
 
 A simple crawler craw Erohub/Safebooru/Konachan/Expliyh everyday
 
