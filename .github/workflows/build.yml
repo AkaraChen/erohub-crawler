@@ -24,9 +24,6 @@ jobs:
     - name: Konachan
       run: |
         python3 konachan.py
-    - name: Expliyh
-      run: |
-        python3 expliyh.py
     - name: Safebooru
       run: |
         python3 safebooru.py
